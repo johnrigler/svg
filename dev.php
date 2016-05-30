@@ -39,6 +39,10 @@ function ShowPoint() {
 
 
 	}
+
+function SetCorner($val) {
+	$this->IsCorner = $val;
+	}
 }
 
 class PolyLine {
@@ -83,13 +87,13 @@ function FindEven() {
 
 	}
 
-function SetCorner($id) {
+function SetCorner($id,$val) {
 
 $WorkingPoint = $this->Array[$id];
-$WorkingPoint->IsCorner=1;
+$WorkingPoint->SetCorner($id,$val);
 }
 
-function ShowCorner() {
+function ShowCorners() {
 
   foreach( $this->Array as $index => $Point)
       {
@@ -115,9 +119,19 @@ $PL = new PolyLine();
 	foreach( $PL->Array as $Coord) { echo " $Coord "; }
 	echo ' " />'; ?>
 
-<?php $PL->SetCorner(0); ?>
+<?php
 
-<?php $PL->ShowCorner(); ?>
+foreach(array( 1,2,3,4,6,7,8,9,11,12,13,14,16,17,18,19 ) as $id)
+		{
+		$PL->SetCorner($id,1);
+		}
+
+ ?>
+
+
+
+
+<?php $PL->ShowCorners(); ?>
 
 </svg>
 <hr>
