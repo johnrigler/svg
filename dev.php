@@ -17,6 +17,7 @@
 class Point {
 
 public $Coordinates = array();
+public $IsCorner = 0;
 
 function __construct($x,$y) {
 
@@ -25,9 +26,18 @@ function __construct($x,$y) {
 
 	}
 
-
 function __toString() {
 		return $this->Coordinates['x'] . "," . $this->Coordinates['y'];
+	}
+
+function ShowPoint() {
+
+    $x = $this->Coordinates['x'];
+    $y = $this->Coordinates['y'];
+
+	  echo "<circle cx='$x' cy='$y' r='3' stroke='black' stroke-width='1' fill='red' />\n";
+
+
 	}
 }
 
@@ -61,11 +71,39 @@ $this->Array []= new Point(100,100);
 
 	}
 
+function FindEven() {
+
+	foreach( $this->Array as $index => $Point)
+			{
+			$even = $index % 2;
+			if($even == 0)
+				{ $Point->ShowPoint();
+				}
+			}
+
+	}
+
+function SetCorner($id) {
+
+$WorkingPoint = $this->Array[$id];
+$WorkingPoint->IsCorner=1;
+}
+
+function ShowCorner() {
+
+  foreach( $this->Array as $index => $Point)
+      {
+      if($Point->IsCorner == 0)
+        { $Point->ShowPoint();
+        }
+      }
+	}
+
 }
 
 $PL = new PolyLine();
 
-print_r($PL->Array);
+//print_r($PL->Array);
 
 
 ?>
@@ -75,12 +113,16 @@ print_r($PL->Array);
 <?php	
 	echo '	points="';
 	foreach( $PL->Array as $Coord) { echo " $Coord "; }
-	echo ' " >';
+	echo ' " />'; ?>
 
-?>
- />
+<?php $PL->SetCorner(0); ?>
+
+<?php $PL->ShowCorner(); ?>
+
 </svg>
 <hr>
+
+
 <?php $date=`date`;
 echo $date; ?>
 <h3>
