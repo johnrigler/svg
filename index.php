@@ -1,12 +1,30 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<?php
+/*********************************************************************
+    index.php
+
+    SVG Generator. Please customize it to fit your needs.
+
+    John Rigler <john@rigler.org>
+    Copyright (c)  2016 Secret Beach Solutions 
+    http://secretbeachsolutions.com
+
+    Released under the Apache 2  General Public License WITHOUT ANY WARRANTY.
+    See LICENSE.TXT for details.
+
+*******************************************/
+?>
+
+
 <head>
 	<meta http-equiv='refresh' content='5'>
 </head>
 <svg width="13cm" height="13cm" viewBox="80 80 202 202"
      xmlns="http://www.w3.org/2000/svg" version="1.1">
-  <desc>Example polyline01 - increasingly larger bars</desc>
+  <desc>SVG Creator</desc>
 
   <!-- Show outline of canvas using 'rect' element -->
   <rect x="82" y="82"
