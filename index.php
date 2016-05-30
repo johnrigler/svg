@@ -17,6 +17,7 @@
 class Point {
 
 public $Coordinates = array();
+public $Offset = array();
 public $IsCorner = 0;
 public $OffsetAngle = 0;
 
@@ -24,8 +25,8 @@ function __construct($x,$y,$xo,$yo) {
 
 		$this->Coordinates['x'] = $x;
 		$this->Coordinates['y'] = $y;
-		$this->Coordinates['xo'] = $xo;
-		$this->Coordinates['yo'] = $yo;
+		$this->Offset['x'] = $xo;
+		$this->Offset['y'] = $yo;
 
 	}
 
@@ -37,23 +38,14 @@ function ShowPoint($xa,$ya) {
 
     $x = $this->Coordinates['x'];
     $y = $this->Coordinates['y'];
-		$xo = $x + $xa;
-		$yo = $y + $ya;
+		$xo = $x + $this->Offset['x'];
+		$yo = $y + $this->Offset['y'];
 
 	  echo "<circle cx='$x' cy='$y' r='3' stroke='black' stroke-width='1' fill='red' />\n";
 		echo "<line x1='$x' y1='$y' x2='$xo' y2='$yo' stroke=black stroke-width=2' />\n";
 
 
 	}
-
-function ShowNE() {
-  
-    $x = $this->Coordinates['x'];
-    $y = $this->Coordinates['y'];
- 
-    echo "<circle cx='$x' cy='$y' r='3' stroke='black' stroke-width='1' fill='blue' />\n";
- 
-  }
 
 
 function SetCorner($val) {
@@ -65,29 +57,31 @@ class PolyLine {
 
 public $Array = array();
 
-function __construct() {
+function __construct($a) {
 
-$this->Array []= new Point(100,100,5,5);
-$this->Array []= new Point(130,100);
-$this->Array []= new Point(130,110);
-$this->Array []= new Point(160,110);
-$this->Array []= new Point(160,100);
-$this->Array []= new Point(190,100);
-$this->Array []= new Point(190,130);
-$this->Array []= new Point(180,130);
-$this->Array []= new Point(180,160);
-$this->Array []= new Point(190,160);
-$this->Array []= new Point(190,190);
-$this->Array []= new Point(160,190);
-$this->Array []= new Point(160,200);
-$this->Array []= new Point(130,200);  
-$this->Array []= new Point(130,190);
-$this->Array []= new Point(100,190);
-$this->Array []= new Point(100,160);
-$this->Array []= new Point(90,160);
-$this->Array []= new Point(90,130);
-$this->Array []= new Point(100,130);
-$this->Array []= new Point(100,100);
+$b = $a * -1;
+
+$this->Array []= new Point(100,100,$b,$b);
+$this->Array []= new Point(130,100,$a,$b);
+$this->Array []= new Point(130,110,$a,$b);
+$this->Array []= new Point(160,110,$b,$b);
+$this->Array []= new Point(160,100,$b,$b);
+$this->Array []= new Point(190,100,$a,$b);
+$this->Array []= new Point(190,130,$a,$a);
+$this->Array []= new Point(180,130,$a,$a);
+$this->Array []= new Point(180,160,$a,$b);
+$this->Array []= new Point(190,160,$a,$b);
+$this->Array []= new Point(190,190,$a,$a);
+$this->Array []= new Point(160,190,$a,$a);
+$this->Array []= new Point(160,200,$a,$a);
+$this->Array []= new Point(130,200,$b,$a);  
+$this->Array []= new Point(130,190,$b,$a);
+$this->Array []= new Point(100,190,$b,$a);
+$this->Array []= new Point(100,160,$b,$a);
+$this->Array []= new Point(90,160,$b,$a);
+$this->Array []= new Point(90,130,$b,$b);
+$this->Array []= new Point(100,130,$b,$b);
+$this->Array []= new Point(100,100,$b,$b);
 
 	}
 
@@ -103,12 +97,6 @@ function FindEven() {
 
 	}
 
-function SetCorner($id,$val) {
-
-$WorkingPoint = $this->Array[$id];
-$WorkingPoint->SetCorner($id,$val);
-}
-
 function ShowOffset() {
 
   foreach( $this->Array as $index => $Point)
@@ -120,7 +108,7 @@ function ShowOffset() {
 
 }
 
-$PL = new PolyLine();
+$PL = new PolyLine(5);
 
 //print_r($PL->Array);
 
@@ -133,16 +121,6 @@ $PL = new PolyLine();
 	echo '	points="';
 	foreach( $PL->Array as $Coord) { echo " $Coord "; }
 	echo ' " />'; ?>
-
-<?php
-
-foreach(array( 1,2,3,4,6,7,8,9,11,12,13,14,16,17,18,19 ) as $id)
-		{
-		$PL->SetCorner($id,1);
-		}
-
- ?>
-
 
 
 
