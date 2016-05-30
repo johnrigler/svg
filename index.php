@@ -21,12 +21,30 @@ public $Offset = array();
 public $IsCorner = 0;
 public $OffsetAngle = 0;
 
-function __construct($x,$y,$xo,$yo) {
+function __construct($x,$y,$a,$w) {
 
 		$this->Coordinates['x'] = $x;
 		$this->Coordinates['y'] = $y;
-		$this->Offset['x'] = $xo;
-		$this->Offset['y'] = $yo;
+
+		$this->Offset['x'] = $w;
+		$this->Offset['y'] = $w;
+
+   switch ($a) {
+    case 45:
+        $this->Offset['y'] = $w * -1;
+        break;
+
+		case 135:
+				$this->Offset['x'] = $w * -1;
+				$this->Offset['y'] = $w * -1;
+
+		case 225:
+				$this->Offset['x'] = $w * -1;
+				break;
+    default:
+        break;
+      }
+
 
 	}
 
@@ -34,7 +52,12 @@ function __toString() {
 		return $this->Coordinates['x'] . "," . $this->Coordinates['y'];
 	}
 
-function ShowPoint($xa,$ya) {
+function ReturnX() { return $this->Coordinates['x']; }
+function ReturnY() { return $this->Coordinates['y']; }
+function ReturnXi() { return $this->Coordinates['x'] + $this->Offset['x']; }
+function ReturnYi() { return $this->Coordinates['y'] + $this->Offset['y']; }
+
+function ShowPoint() {
 
     $x = $this->Coordinates['x'];
     $y = $this->Coordinates['y'];
@@ -47,7 +70,6 @@ function ShowPoint($xa,$ya) {
 
 	}
 
-
 function SetCorner($val) {
 	$this->IsCorner = $val;
 	}
@@ -56,72 +78,70 @@ function SetCorner($val) {
 class PolyLine {
 
 public $Array = array();
+public $Angles = array();
+public $Offset = 0;
 
 function __construct($a) {
 
-$b = $a * -1;
-
-$this->Array []= new Point(100,100,$b,$b);
-$this->Array []= new Point(130,100,$a,$b);
-$this->Array []= new Point(130,110,$a,$b);
-$this->Array []= new Point(160,110,$b,$b);
-$this->Array []= new Point(160,100,$b,$b);
-$this->Array []= new Point(190,100,$a,$b);
-$this->Array []= new Point(190,130,$a,$a);
-$this->Array []= new Point(180,130,$a,$a);
-$this->Array []= new Point(180,160,$a,$b);
-$this->Array []= new Point(190,160,$a,$b);
-$this->Array []= new Point(190,190,$a,$a);
-$this->Array []= new Point(160,190,$a,$a);
-$this->Array []= new Point(160,200,$a,$a);
-$this->Array []= new Point(130,200,$b,$a);  
-$this->Array []= new Point(130,190,$b,$a);
-$this->Array []= new Point(100,190,$b,$a);
-$this->Array []= new Point(100,160,$b,$a);
-$this->Array []= new Point(90,160,$b,$a);
-$this->Array []= new Point(90,130,$b,$b);
-$this->Array []= new Point(100,130,$b,$b);
-$this->Array []= new Point(100,100,$b,$b);
+$this->Array []= new Point(100,100,135,$a);
+$this->Array []= new Point(130,100,45,$a);
+$this->Array []= new Point(130,110,45,$a);
+$this->Array []= new Point(160,110,135,$a);
+$this->Array []= new Point(160,100,135,$a);
+$this->Array []= new Point(190,100,45,$a);
+$this->Array []= new Point(190,130,315,$a);
+$this->Array []= new Point(180,130,315,$a);
+$this->Array []= new Point(180,160,45,$a);
+$this->Array []= new Point(190,160,45,$a);
+$this->Array []= new Point(190,190,315,$a);
+$this->Array []= new Point(160,190,315,$a);
+$this->Array []= new Point(160,200,315,$a);
+$this->Array []= new Point(130,200,225,$a);  
+$this->Array []= new Point(130,190,225,$a);
+$this->Array []= new Point(100,190,225,$a);
+$this->Array []= new Point(100,160,225,$a);
+$this->Array []= new Point(90,160,225,$a);
+$this->Array []= new Point(90,130,135,$a);
+$this->Array []= new Point(100,130,135,$a);
+$this->Array []= new Point(100,100,135,$a);
 
 	}
 
-function FindEven() {
+//function ShowOffset() {
 
-	foreach( $this->Array as $index => $Point)
-			{
-			$even = $index % 2;
-			if($even == 0)
-				{ $Point->ShowPoint(5,15);
-				}
-			}
-
-	}
-
-function ShowOffset() {
-
-  foreach( $this->Array as $index => $Point)
-      {
-         $Point->ShowPoint(15,-15);
-        
-      }
-	}
+//  foreach( $this->Array as $index => $Point)
+ //     {
+   //      $Point->ShowPoint();
+   //   }
+//	}
 
 }
 
-$PL = new PolyLine(5);
-
-//print_r($PL->Array);
-
+$PL = new PolyLine(3);
 
 ?>
 
-  <polyline fill="none" stroke="blue" stroke-width="2" 
+  <polyline fill="none" stroke="blue" stroke-width="1" 
 		
 <?php	
 	echo '	points="';
-	foreach( $PL->Array as $Coord) { echo " $Coord "; }
+	foreach( $PL->Array as $Coord) { 
+		$x = $Coord->ReturnX();
+		$y = $Coord->ReturnY();
+		echo " $x,$y ";
+  }
 	echo ' " />'; ?>
 
+  <polyline fill="none" stroke="green" stroke-width="1" 
+    
+<?php
+  echo '  points="';
+  foreach( $PL->Array as $Coord) { 
+    $x = $Coord->ReturnXi();
+    $y = $Coord->ReturnYi();
+    echo " $x,$y ";
+  }
+  echo ' " />'; ?>
 
 
 <?php $PL->ShowOffset(); ?>

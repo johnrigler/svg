@@ -52,7 +52,12 @@ function __toString() {
 		return $this->Coordinates['x'] . "," . $this->Coordinates['y'];
 	}
 
-function ShowPoint($xa,$ya) {
+function ReturnX() { return $this->Coordinates['x']; }
+function ReturnY() { return $this->Coordinates['y']; }
+function ReturnXi() { return $this->Coordinates['x'] + $this->Offset['x']; }
+function ReturnYi() { return $this->Coordinates['y'] + $this->Offset['y']; }
+
+function ShowPoint() {
 
     $x = $this->Coordinates['x'];
     $y = $this->Coordinates['y'];
@@ -64,34 +69,6 @@ function ShowPoint($xa,$ya) {
 
 
 	}
-
-function xxxSetOffset($degree,$width) {
-
-		$this->Offset['x'] = $width;
-		$this->Offset['y'] = $width;
-
-	switch($degree) {
-		case 45:
-			$this->Offset['y'] = $width * -1;
-			break;
-
-		case 135:
-			$this->Offset['x'] = $width * -1;
-			$this->Offset['y'] = $width * -1;
-			break;
-
-		case 225:
-			$this->Offset['x'] = $width * -1;
-			break;
-
-		case 315:
-			break;
-
-		default:
-		 	break;
-		}
-	}
-
 
 function SetCorner($val) {
 	$this->IsCorner = $val;
@@ -105,10 +82,6 @@ public $Angles = array();
 public $Offset = 0;
 
 function __construct($a) {
-
-$this->Offset = $a;
-
-$b = $a * -1;
 
 $this->Array []= new Point(100,100,135,$a);
 $this->Array []= new Point(130,100,45,$a);
@@ -134,33 +107,44 @@ $this->Array []= new Point(100,100,135,$a);
 
 	}
 
-function ShowOffset() {
+//function ShowOffset() {
 
-  foreach( $this->Array as $index => $Point)
-      {
-         $Point->ShowPoint(15,-15);
-        
-      }
-	}
+//  foreach( $this->Array as $index => $Point)
+ //     {
+   //      $Point->ShowPoint();
+   //   }
+//	}
 
 }
 
-$PL = new PolyLine(5);
-
-$TestPoint = $PL->Array[5];
-
-
-//print_r($PL->Array);
-
+$PL = new PolyLine(3);
 
 ?>
 
-  <polyline fill="none" stroke="blue" stroke-width="2" 
+  <polyline fill="none" stroke="blue" stroke-width="1" 
 		
 <?php	
 	echo '	points="';
-	foreach( $PL->Array as $Coord) { echo " $Coord "; }
+	foreach( $PL->Array as $Coord) { 
+		$x = $Coord->ReturnX();
+		$y = $Coord->ReturnY();
+		echo " $x,$y ";
+  }
 	echo ' " />'; ?>
+
+  <polyline fill="none" stroke="green" stroke-width="1" 
+    
+<?php
+  echo '  points="';
+  foreach( $PL->Array as $Coord) { 
+    $x = $Coord->ReturnXi();
+    $y = $Coord->ReturnYi();
+    echo " $x,$y ";
+  }
+  echo ' " />'; ?>
+
+
+
 
 
 
