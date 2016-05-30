@@ -4,15 +4,14 @@
 <head>
 	<meta http-equiv='refresh' content='5'>
 </head>
-<svg width="14cm" height="14cm" viewBox="0 0 302 302"
+<svg width="13cm" height="13cm" viewBox="80 80 202 202"
      xmlns="http://www.w3.org/2000/svg" version="1.1">
   <desc>Example polyline01 - increasingly larger bars</desc>
 
   <!-- Show outline of canvas using 'rect' element -->
-  <rect x="1" y="1" width="300" height="300"
+  <rect x="82" y="82"
+ width="180" height="180"
         fill="none" stroke="blue" stroke-width="2" />
-
-
 <?php 
 
 class Point {
@@ -77,8 +76,13 @@ print_r($PL->Array);
 	echo ' " >';
 
 ?>
-
-
  />
 </svg>
+<hr>
+<?php $date=`date`;
+echo $date; ?>
+<h3>
+<?php include 'desc.php'; ?>
+
+</h3>
 </html>

@@ -55,6 +55,8 @@ $this->Array []= new Point(130,190);
 $this->Array []= new Point(100,190);
 $this->Array []= new Point(100,160);
 $this->Array []= new Point(90,160);
+$this->Array []= new Point(90,130);
+$this->Array []= new Point(100,130);
 $this->Array []= new Point(100,100);
 
 	}
