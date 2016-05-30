@@ -144,6 +144,10 @@ $PL = new PolyLine(3);
   echo ' " />'; ?>
 
 
+
+
+
+
 <?php $PL->ShowOffset(); ?>
 
 </svg>
