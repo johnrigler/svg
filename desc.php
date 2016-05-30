@@ -1,1 +1,1 @@
-Adding functionality to Point to define corners in Polygon.
+The little black lines show how each point needs to be adjusted.

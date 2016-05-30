@@ -18,11 +18,14 @@ class Point {
 
 public $Coordinates = array();
 public $IsCorner = 0;
+public $OffsetAngle = 0;
 
-function __construct($x,$y) {
+function __construct($x,$y,$xo,$yo) {
 
 		$this->Coordinates['x'] = $x;
 		$this->Coordinates['y'] = $y;
+		$this->Coordinates['xo'] = $xo;
+		$this->Coordinates['yo'] = $yo;
 
 	}
 
@@ -30,14 +33,31 @@ function __toString() {
 		return $this->Coordinates['x'] . "," . $this->Coordinates['y'];
 	}
 
-function ShowPoint() {
+function ShowPoint($xa,$ya) {
 
     $x = $this->Coordinates['x'];
     $y = $this->Coordinates['y'];
+		$xo = $x + $xa;
+		$yo = $y + $ya;
 
 	  echo "<circle cx='$x' cy='$y' r='3' stroke='black' stroke-width='1' fill='red' />\n";
+		echo "<line x1='$x' y1='$y' x2='$xo' y2='$yo' stroke=black stroke-width=2' />\n";
 
 
+	}
+
+function ShowNE() {
+  
+    $x = $this->Coordinates['x'];
+    $y = $this->Coordinates['y'];
+ 
+    echo "<circle cx='$x' cy='$y' r='3' stroke='black' stroke-width='1' fill='blue' />\n";
+ 
+  }
+
+
+function SetCorner($val) {
+	$this->IsCorner = $val;
 	}
 }
 
@@ -47,7 +67,7 @@ public $Array = array();
 
 function __construct() {
 
-$this->Array []= new Point(100,100);
+$this->Array []= new Point(100,100,5,5);
 $this->Array []= new Point(130,100);
 $this->Array []= new Point(130,110);
 $this->Array []= new Point(160,110);
@@ -77,21 +97,25 @@ function FindEven() {
 			{
 			$even = $index % 2;
 			if($even == 0)
-				{ $Point->ShowPoint();
+				{ $Point->ShowPoint(5,15);
 				}
 			}
 
 	}
 
-function ShowCorner() {
+function SetCorner($id,$val) {
+
+$WorkingPoint = $this->Array[$id];
+$WorkingPoint->SetCorner($id,$val);
+}
+
+function ShowOffset() {
 
   foreach( $this->Array as $index => $Point)
       {
-      if($Point->IsCorner == 0)
-        { $Point->ShowPoint();
-        }
+         $Point->ShowPoint(15,-15);
+        
       }
-
 	}
 
 }
@@ -110,7 +134,19 @@ $PL = new PolyLine();
 	foreach( $PL->Array as $Coord) { echo " $Coord "; }
 	echo ' " />'; ?>
 
-<?php $PL->ShowCorner(); ?>
+<?php
+
+foreach(array( 1,2,3,4,6,7,8,9,11,12,13,14,16,17,18,19 ) as $id)
+		{
+		$PL->SetCorner($id,1);
+		}
+
+ ?>
+
+
+
+
+<?php $PL->ShowOffset(); ?>
 
 </svg>
 <hr>
