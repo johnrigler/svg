@@ -1,56 +1,82 @@
-<html>
-<body>
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<head>
+	<meta http-equiv='refresh' content='5'>
+</head>
+<svg width="14cm" height="14cm" viewBox="0 0 302 302"
+     xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <desc>Example polyline01 - increasingly larger bars</desc>
+
+  <!-- Show outline of canvas using 'rect' element -->
+  <rect x="1" y="1" width="300" height="300"
+        fill="none" stroke="blue" stroke-width="2" />
 
 
-<svg height="210" width="500">
+<?php 
 
-<?php
+class Point {
 
-class ToolPath
-{
-		// Declare Properties
+public $Coordinates = array();
 
-		public $width=5;
+function __construct($x,$y) {
 
-		// Declare Methods
+		$this->Coordinates['x'] = $x;
+		$this->Coordinates['y'] = $y;
+
+	}
 
 
-	public function DrawLine($x1,$y1,$x2,$y2,$r,$g,$b) {
+function __toString() {
+		return $this->Coordinates['x'] . "," . $this->Coordinates['y'];
+	}
+}
 
-	echo "  <line x1='$x1' y1='$y' x2='$x2' y2='$y' style='stroke:rgb($r,$g,$b);stroke-width:4' />";
+class PolyLine {
+
+public $Array = array();
+
+function __construct() {
+
+$this->Array []= new Point(100,100);
+$this->Array []= new Point(100,105);
+$this->Array []= new Point(105,105);
+$this->Array []= new Point(130,100);
+$this->Array []= new Point(160,100);
+$this->Array []= new Point(200,100);
+$this->Array []= new Point(210,210);
+$this->Array []= new Point(200,210);
+$this->Array []= new Point(210,200);
+$this->Array []= new Point(190,200);
+$this->Array []= new Point(200,200);
+$this->Array []= new Point(250,175);
+$this->Array []= new Point(250,200);
+$this->Array []= new Point(100,200);  
+$this->Array []= new Point(150,200);
+$this->Array []= new Point(150,110);
+$this->Array []= new Point(150,105);
+$this->Array []= new Point(100,100);
 
 	}
 
 }
 
+$PL = new PolyLine();
 
-function top($x1,$x2,$y,$w,$r,$g,$b) {
+print_r($PL->Array);
 
-//line($x1,$y,$x2,$y,$r,$g,$b);
-
-echo "  <line x1='$x1' y1='$y' x2='$x2' y2='$y' style='stroke:rgb(255,0,0);stroke-width:2' />";
-$y = $y + $w;
-echo "  <line x1='$x1' y1='$y' x2='$x2' y2='$y' style='stroke:rgb(255,100,0);stroke-width:2' />";
-
-};
-
-function right($y1,$y2,$x,$w) {
-echo "  <line x1='$x' y1='$y1' x2='$x' y2='$y2' style='stroke:rgb(255,0,0);stroke-width:2' />";
-$x = $x - $w;
-echo "  <line x1='$x' y1='$y1' x2='$x' y2='$y2' style='stroke:rgb(255,100,0);stroke-width:2' />";
-
-};
-
-$Top = new ToolPath();
-
-
-top(100,200,50,15,255,0,0);
-right(50,100,200,15);
-top(200,250,100,15);
 
 ?>
 
-</svg>
+  <polyline fill="none" stroke="blue" stroke-width="2" 
+		
+<?php	
+	echo '	points="';
+	foreach( $PL->Array as $Coord) { echo " $Coord "; }
+	echo ' " >';
 
-</body>
-</html>
+?>
+
+
+ />
+</svg>
