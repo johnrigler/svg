@@ -1,18 +1,63 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<?php
+/*********************************************************************
+    index.php
+
+    SVG Generator. Please customize it to fit your needs.
+
+    John Rigler <john@rigler.org>
+    Copyright (c)  2016 Secret Beach Solutions 
+    http://secretbeachsolutions.com
+
+    Released under the Apache 2  General Public License WITHOUT ANY WARRANTY.
+    See LICENSE.TXT for details.
+
+*******************************************/
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Symfony\Component\Yaml\Yaml;
+
+#$array = Yaml::parse(file_get_contents("points.yml"));
+
+#print Yaml::dump($array);
+
+
+?>
+
+
 <head>
 	<meta http-equiv='refresh' content='5'>
 </head>
+
+
 <svg width="13cm" height="13cm" viewBox="80 80 202 202"
      xmlns="http://www.w3.org/2000/svg" version="1.1">
-  <desc>Example polyline01 - increasingly larger bars</desc>
+  <desc>SVG Creator</desc>
 
   <!-- Show outline of canvas using 'rect' element -->
   <rect x="82" y="82"
  width="180" height="180"
         fill="none" stroke="blue" stroke-width="2" />
 <?php 
+
+class SVG {
+
+function __construct($width,$height,$viewBox) {
+
+echo '"<svg width="' . $width . '" height="' . $height . '" viewBox="' . $viewBox . '"';
+echo ' xmlns="http://www.w3.org/2000/svg" version = "1.1">';
+	}
+}
+
+function __destruct() {
+
+echo "</svg>";
+
+}
 
 class Point {
 
@@ -83,38 +128,22 @@ public $Offset = 0;
 
 function __construct($a) {
 
-$this->Array []= new Point(100,100,135,$a);
-$this->Array []= new Point(130,100,45,$a);
-$this->Array []= new Point(130,110,45,$a);
-$this->Array []= new Point(160,110,135,$a);
-$this->Array []= new Point(160,100,135,$a);
-$this->Array []= new Point(190,100,45,$a);
-$this->Array []= new Point(190,130,315,$a);
-$this->Array []= new Point(180,130,315,$a);
-$this->Array []= new Point(180,160,45,$a);
-$this->Array []= new Point(190,160,45,$a);
-$this->Array []= new Point(190,190,315,$a);
-$this->Array []= new Point(160,190,315,$a);
-$this->Array []= new Point(160,200,315,$a);
-$this->Array []= new Point(130,200,225,$a);  
-$this->Array []= new Point(130,190,225,$a);
-$this->Array []= new Point(100,190,225,$a);
-$this->Array []= new Point(100,160,225,$a);
-$this->Array []= new Point(90,160,225,$a);
-$this->Array []= new Point(90,130,135,$a);
-$this->Array []= new Point(100,130,135,$a);
-$this->Array []= new Point(100,100,135,$a);
+$array = Yaml::parse(file_get_contents("points.yml"));
 
+foreach($array as $section)     // Double loop is just an easy way to unpack the YAML 
+	foreach($section as $element)
+		{
+  	$this->Array []= new Point($element[0],$element[1],$element[2],$a);
+		}
 	}
 
-//function ShowOffset() {
+function ShowOffset() {
 
-//  foreach( $this->Array as $index => $Point)
- //     {
-   //      $Point->ShowPoint();
-   //   }
-//	}
-
+  foreach( $this->Array as $index => $Point)
+      {
+         $Point->ShowPoint();
+      }
+	}
 }
 
 $PL = new PolyLine(3);
@@ -142,10 +171,6 @@ $PL = new PolyLine(3);
     echo " $x,$y ";
   }
   echo ' " />'; ?>
-
-
-
-
 
 
 <?php $PL->ShowOffset(); ?>
