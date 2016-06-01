@@ -21,7 +21,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Symfony\Component\Yaml\Yaml;
 
-#$array = Yaml::parse(file_get_contents("points.yml"));
+#$array = Yaml::parse(file_get_contents("points2.yml"));
 
 #print Yaml::dump($array);
 
@@ -34,30 +34,16 @@ use Symfony\Component\Yaml\Yaml;
 </head>
 
 
-<svg width="13cm" height="13cm" viewBox="80 80 202 202"
+<svg width="13cm" height="13cm" viewBox="60 60 202 202"
      xmlns="http://www.w3.org/2000/svg" version="1.1">
   <desc>SVG Creator</desc>
 
   <!-- Show outline of canvas using 'rect' element -->
-  <rect x="82" y="82"
- width="180" height="180"
-        fill="none" stroke="blue" stroke-width="2" />
+  <rect x="62" y="62"       
+ width="180" height="180"    
+        fill="none" stroke="blue" stroke-width="2" />   
+
 <?php 
-
-class SVG {
-
-function __construct($width,$height,$viewBox) {
-
-echo '"<svg width="' . $width . '" height="' . $height . '" viewBox="' . $viewBox . '"';
-echo ' xmlns="http://www.w3.org/2000/svg" version = "1.1">';
-	}
-}
-
-function __destruct() {
-
-echo "</svg>";
-
-}
 
 class Point {
 
@@ -89,8 +75,6 @@ function __construct($x,$y,$a,$w) {
     default:
         break;
       }
-
-
 	}
 
 function __toString() {
@@ -112,11 +96,6 @@ function ShowPoint() {
 	  echo "<circle cx='$x' cy='$y' r='3' stroke='black' stroke-width='1' fill='red' />\n";
 		echo "<line x1='$x' y1='$y' x2='$xo' y2='$yo' stroke=black stroke-width=2' />\n";
 
-
-	}
-
-function SetCorner($val) {
-	$this->IsCorner = $val;
 	}
 }
 
@@ -125,6 +104,11 @@ class PolyLine {
 public $Array = array();
 public $Angles = array();
 public $Offset = 0;
+public $PointCount = 0;
+public $XSum = 0;
+public $YSum = 0;
+public $MidX = 0;
+public $MidY = 0;
 
 function __construct($a) {
 
@@ -133,8 +117,18 @@ $array = Yaml::parse(file_get_contents("points.yml"));
 foreach($array as $section)     // Double loop is just an easy way to unpack the YAML 
 	foreach($section as $element)
 		{
-  	$this->Array []= new Point($element[0],$element[1],$element[2],$a);
+  	$this->Array []= new Point($element[0],$element[1],$element[2],$a); // Load into array
+		$this->PointCount++;
+		$this->XSum += $element[0];    // Add up X to find average (middle)
+		$this->YSum += $element[1];    // Add up Y to find average (middle)
 		}
+
+  $this->MidX = $this->XSum / $this->PointCount;
+	$this->MidY = $this->YSum / $this->PointCount;	
+
+  $Middle = new Point($this->MidX,$this->MidY,0,0);
+	$Middle->ShowPoint();
+
 	}
 
 function ShowOffset() {
@@ -144,9 +138,12 @@ function ShowOffset() {
          $Point->ShowPoint();
       }
 	}
+
 }
 
-$PL = new PolyLine(3);
+### Begin Here
+
+$PL = new PolyLine(5);
 
 ?>
 
@@ -173,7 +170,7 @@ $PL = new PolyLine(3);
   echo ' " />'; ?>
 
 
-<?php $PL->ShowOffset(); ?>
+<?php $PL->ShowOffset(); ?>  
 
 </svg>
 <hr>
