@@ -1,0 +1,18 @@
+[?25l[J[J[J[J[J[J[?12l[?25h[?1049h[?1h=[1;24r[?12;25h[?12l[?25h[27m[23m[m[H[2J[?25l[24;1H"short.php" 168L, 3779C[1;1H<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<?php
+/*********************************************************************
+    index.php[9;5HSVG Generator. Please customize it to fit your needs.[11;5HJohn Rigler <john@rigler.org>
+    Copyright (c)  2016 Secret Beach Solutions
+    http://secretbeachsolutions.com[15;5HReleased under the Apache 2  General Public License WITHOUT ANY WARRANTY.
+    See LICENSE.TXT for details.
+
+*******************************************/
+
+require_once __DIR__ . '/../vendor/autoload.php';
+
+use Symfony\Component\Yaml\Yaml;[1;1H[?12l[?25h
+
+  [?25l[24;1H[K[24;1H:[?12l[?25hq[?25l[?1l>[?12l[?25h[?1049l

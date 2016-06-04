@@ -1,0 +1,68 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="13cm" height="13cm" viewBox="60 60 202 202"
+     xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <desc>SVG Creator</desc>
+
+  <!-- Show outline of canvas using 'rect' element -->
+  <rect x="62" y="62"       
+ width="180" height="180"    
+        fill="none" stroke="blue" stroke-width="2" />   
+
+<circle cx='140.95238095238' cy='144.7619047619' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='140.95238095238' y1='144.7619047619' x2='140.95238095238' y2='144.7619047619' stroke='black' stroke-width='2' />
+
+  <polyline fill="none" stroke="blue" stroke-width="1" 
+		
+	points=" 100,100  130,100  130,110  160,110  160,100  190,100  190,130  180,130  180,160  190,160  190,190  160,190  160,200  130,200  130,190  100,190  100,160  90,160  90,130  100,130  100,100  " />
+  <polyline fill="none" stroke="green" stroke-width="1" 
+    
+  points=" 104,104  126,104  126,114  164,114  164,104  186,104  186,126  176,126  176,164  186,164  186,186  156,186  156,196  134,196  134,186  104,186  104,156  94,156  94,134  104,134  104,104  " />
+
+<circle cx='100' cy='100' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='100' y1='100' x2='104' y2='104' stroke='black' stroke-width='2' />
+<circle cx='130' cy='100' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='130' y1='100' x2='126' y2='104' stroke='black' stroke-width='2' />
+<circle cx='130' cy='110' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='130' y1='110' x2='126' y2='114' stroke='black' stroke-width='2' />
+<circle cx='160' cy='110' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='160' y1='110' x2='164' y2='114' stroke='black' stroke-width='2' />
+<circle cx='160' cy='100' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='160' y1='100' x2='164' y2='104' stroke='black' stroke-width='2' />
+<circle cx='190' cy='100' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='190' y1='100' x2='186' y2='104' stroke='black' stroke-width='2' />
+<circle cx='190' cy='130' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='190' y1='130' x2='186' y2='126' stroke='black' stroke-width='2' />
+<circle cx='180' cy='130' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='180' y1='130' x2='176' y2='126' stroke='black' stroke-width='2' />
+<circle cx='180' cy='160' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='180' y1='160' x2='176' y2='164' stroke='black' stroke-width='2' />
+<circle cx='190' cy='160' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='190' y1='160' x2='186' y2='164' stroke='black' stroke-width='2' />
+<circle cx='190' cy='190' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='190' y1='190' x2='186' y2='186' stroke='black' stroke-width='2' />
+<circle cx='160' cy='190' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='160' y1='190' x2='156' y2='186' stroke='black' stroke-width='2' />
+<circle cx='160' cy='200' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='160' y1='200' x2='156' y2='196' stroke='black' stroke-width='2' />
+<circle cx='130' cy='200' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='130' y1='200' x2='134' y2='196' stroke='black' stroke-width='2' />
+<circle cx='130' cy='190' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='130' y1='190' x2='134' y2='186' stroke='black' stroke-width='2' />
+<circle cx='100' cy='190' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='100' y1='190' x2='104' y2='186' stroke='black' stroke-width='2' />
+<circle cx='100' cy='160' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='100' y1='160' x2='104' y2='156' stroke='black' stroke-width='2' />
+<circle cx='90' cy='160' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='90' y1='160' x2='94' y2='156' stroke='black' stroke-width='2' />
+<circle cx='90' cy='130' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='90' y1='130' x2='94' y2='134' stroke='black' stroke-width='2' />
+<circle cx='100' cy='130' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='100' y1='130' x2='104' y2='134' stroke='black' stroke-width='2' />
+<circle cx='100' cy='100' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='100' y1='100' x2='104' y2='104' stroke='black' stroke-width='2' />
+  
+
+</svg>
