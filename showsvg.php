@@ -1,0 +1,81 @@
+<?php include 'svg.php'; ?>
+
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+
+<?php
+
+function markup($type,$tags) {
+
+echo "<svg 
+			width='122mm' 
+			height='80mm'
+      xmlns='http://www.w3.org/2000/svg' 
+			version='1.1'
+			>";
+};
+
+markup();
+
+?>
+
+  <!-- Show outline of canvas using 'rect' element -->
+  <rect x="62" y="62"       
+ width="180" height="180"    
+        fill="none" stroke="blue" stroke-width="2" />   
+
+<circle cx='140.95238095238' cy='144.7619047619' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='140.95238095238' y1='144.7619047619' x2='140.95238095238' y2='144.7619047619' stroke='black' stroke-width='2' />
+
+  <polyline fill="none" stroke="blue" stroke-width="1" 
+		
+	points=" 100,100  130,100  130,110  160,110  160,100  190,100  190,130  180,130  180,160  190,160  190,190  160,190  160,200  130,200  130,190  100,190  100,160  90,160  90,130  100,130  100,100  " />
+  <polyline fill="none" stroke="green" stroke-width="1" 
+    
+  points=" 99.75,99.75  130.25,99.75  130.25,109.75  159.75,109.75  159.75,99.75  190.25,99.75  190.25,130.25  180.25,130.25  180.25,159.75  190.25,159.75  190.25,190.25  160.25,190.25  160.25,200.25  129.75,200.25  129.75,190.25  99.75,190.25  99.75,160.25  89.75,160.25  89.75,129.75  99.75,129.75  99.75,99.75  " />
+
+<circle cx='100' cy='100' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='100' y1='100' x2='99.75' y2='99.75' stroke='black' stroke-width='2' />
+<circle cx='130' cy='100' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='130' y1='100' x2='130.25' y2='99.75' stroke='black' stroke-width='2' />
+<circle cx='130' cy='110' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='130' y1='110' x2='130.25' y2='109.75' stroke='black' stroke-width='2' />
+<circle cx='160' cy='110' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='160' y1='110' x2='159.75' y2='109.75' stroke='black' stroke-width='2' />
+<circle cx='160' cy='100' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='160' y1='100' x2='159.75' y2='99.75' stroke='black' stroke-width='2' />
+<circle cx='190' cy='100' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='190' y1='100' x2='190.25' y2='99.75' stroke='black' stroke-width='2' />
+<circle cx='190' cy='130' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='190' y1='130' x2='190.25' y2='130.25' stroke='black' stroke-width='2' />
+<circle cx='180' cy='130' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='180' y1='130' x2='180.25' y2='130.25' stroke='black' stroke-width='2' />
+<circle cx='180' cy='160' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='180' y1='160' x2='180.25' y2='159.75' stroke='black' stroke-width='2' />
+<circle cx='190' cy='160' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='190' y1='160' x2='190.25' y2='159.75' stroke='black' stroke-width='2' />
+<circle cx='190' cy='190' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='190' y1='190' x2='190.25' y2='190.25' stroke='black' stroke-width='2' />
+<circle cx='160' cy='190' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='160' y1='190' x2='160.25' y2='190.25' stroke='black' stroke-width='2' />
+<circle cx='160' cy='200' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='160' y1='200' x2='160.25' y2='200.25' stroke='black' stroke-width='2' />
+<circle cx='130' cy='200' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='130' y1='200' x2='129.75' y2='200.25' stroke='black' stroke-width='2' />
+<circle cx='130' cy='190' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='130' y1='190' x2='129.75' y2='190.25' stroke='black' stroke-width='2' />
+<circle cx='100' cy='190' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='100' y1='190' x2='99.75' y2='190.25' stroke='black' stroke-width='2' />
+<circle cx='100' cy='160' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='100' y1='160' x2='99.75' y2='160.25' stroke='black' stroke-width='2' />
+<circle cx='90' cy='160' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='90' y1='160' x2='89.75' y2='160.25' stroke='black' stroke-width='2' />
+<circle cx='90' cy='130' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='90' y1='130' x2='89.75' y2='129.75' stroke='black' stroke-width='2' />
+<circle cx='100' cy='130' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='100' y1='130' x2='99.75' y2='129.75' stroke='black' stroke-width='2' />
+<circle cx='100' cy='100' r='3' stroke='black' stroke-width='1' fill='red' />
+<line x1='100' y1='100' x2='99.75' y2='99.75' stroke='black' stroke-width='2' />
+
+</svg>

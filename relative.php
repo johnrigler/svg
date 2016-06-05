@@ -25,7 +25,7 @@ $array = Yaml::parse(file_get_contents("test.yml"));
 The current YAML Format is 1.0:
 
 ----------------------------------
-- { version: "1.0", movx: 120, movy: 100, side: top }
+- { version: "1.0", startx: 120, starty: 100, side: top }
 - [ 100, -5, 45 ]
 - [ 50, 50, 135 ]
 - [ 120, 100, 45 ]
@@ -40,9 +40,6 @@ placed at the end of the line and is used to create an offset.  Essentially, it 
 
 Mapping come before sequences and can contain notes like "side" or "version".
 
-
-
-
 ******************/
 
 ?>
@@ -53,10 +50,9 @@ Mapping come before sequences and can contain notes like "side" or "version".
 
 <body>
 <table border=1>
-<tr><td width=30%>
-	<pre>
-			<?php print_r($array); ?>
-	</pre>
+<tr><td valign="top" width=30%>
+
+<img src='showsvg.php?name=sample' >
 
 <td valign="top">
 <?php $date=`date`;

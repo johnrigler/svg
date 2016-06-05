@@ -145,6 +145,8 @@ function ShowOffset() {
 
 $PL = new PolyLine(5);
 
+$Grid = new PolyLine(5);
+
 ?>
 
   <polyline fill="none" stroke="blue" stroke-width="1" 
